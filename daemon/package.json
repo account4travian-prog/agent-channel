@@ -1,0 +1,1 @@
+{"dependencies":{"https-proxy-agent":"^9.1.0","ws":"^8.18.0"},"description":"Agent Channel seat daemon (per-agent VM side)","engines":{"node":">=20"},"name":"seat-daemon","private":true,"scripts":{"start":"node seat-daemon.js"},"type":"module","version":"1.0.0"}

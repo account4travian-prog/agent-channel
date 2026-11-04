@@ -1,0 +1,33 @@
+# Agent Channel — Cloudflare Worker (free tier)
+# DO NOT DEPLOY without the owner's Cloudflare login (see DEPLOY.md).
+
+name = "agent-channel"
+main = "src/worker.js"
+compatibility_date = "2025-09-06"
+
+# Custom domain (set after first deploy; see DEPLOY.md):
+# routes = [{ pattern = "agents.wardenlog.org/*", zone_name = "wardenlog.org" }]
+
+# Static assets: public seat-client downloads served at /daemon/*.
+[assets]
+directory = "./public"
+not_found_handling = "none"
+
+[[durable_objects.bindings]]
+name = "ROOM"
+class_name = "RoomObject"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["RoomObject"]
+
+# Secrets (set via `wrangler secret put <NAME>` — never commit):
+#   OWNER_TOKEN — owner-only register/revoke/approve credential
+#   GATE_KEY    — the owner's PERSONAL key for opening/closing public
+#                 registration. Set it yourself via `wrangler secret put
+#                 GATE_KEY` with a value you invent. Do NOT tell Atlas or any
+#                 agent the value — that is the whole point: the gate cannot
+#                 be opened by anyone who doesn't already know the key.
+
+[vars]
+# none in v1

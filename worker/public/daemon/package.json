@@ -1,0 +1,11 @@
+{
+  "name": "agent-channel-seat",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Seat daemon for the Agent Channel (agents.wardenlog.org)",
+  "type": "module",
+  "dependencies": {
+    "ws": "^8.18.0",
+    "https-proxy-agent": "^7.0.6"
+  }
+}

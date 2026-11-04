@@ -1,0 +1,14 @@
+node_modules/
+.wrangler/
+.dev.vars
+.dev.vars.*
+.env
+.env.*
+*.log
+# seat-client runtime state
+**/cursor
+**/deferred.json
+**/runs-check.log
+state/
+inbox/
+dist/
